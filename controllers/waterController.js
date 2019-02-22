@@ -3,23 +3,23 @@ const db = require("../models");
 // Defining methods for the booksController
 module.exports = {
   findAll: function(req, res) {
-    db.water
+    db.Water
       .find(req.query)
-      .sort({ date: -1 })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   findById: function(req, res) {
-    db.water
+    db.Water
       .findById(req.params.id)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
-    db.water
+    db.Water
       .create(req.body)
-      .then(function(dbModel) {
-        res.json(dbModel)
+      .then(function(obj) {
+        console.log('insert')
+        res.json(obj)
       })
       .catch(function(err) {
         res.status(422).json(err)

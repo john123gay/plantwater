@@ -1,5 +1,4 @@
 import React from "react";
-import './Body.css';
 
 const Body = (props) => {
   return (
@@ -10,11 +9,17 @@ const Body = (props) => {
           <h3>NeXt Watering</h3>
           <span>{props.time}</span>
           <span><p>status bar</p></span>
+          <button onClick={() => props.out()}>Logout</button>
+          <button onClick={() => props.getDates()}>Dates</button>
+          <div className="col">
+          <h1> Water Log</h1>
+          <h4 className="text-white px-5 mx-5" dangerouslySetInnerHTML={{__html:props.true}}></h4>
           </div>
+        </div>
       </div>
       <ul>
-        <li><span  onClick={() => props.buzz()} className="col-sm"><i class="fas fa-water water"></i></span></li>
-        <li><i class="fas fa-signal graph"></i></li>
+        <li><span  onClick={() => props.buzz()} className="col-sm"><i className="fas fa-water water"></i></span></li>
+        <li><i className="fas fa-signal graph"></i></li>
       </ul>
     </div>
   );

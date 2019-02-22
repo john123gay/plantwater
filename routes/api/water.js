@@ -1,14 +1,14 @@
 const router = require("express").Router();
-const booksController = require("../../controllers/waterController");
+const waterController = require("../../controllers/waterController");
 
 // Matches with "/api/books"
 router.route("/")
-  .get(booksController.findAll)
-  .post(booksController.create);
+  .get(waterController.findAll)
+  .post(waterController.create);
 
 // Matches with "/api/books/:id"
 router
   .route("/:id")
-  .get(booksController.findById)
+  .get(waterController.findById)
 
 module.exports = router;
