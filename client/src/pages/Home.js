@@ -38,7 +38,7 @@ class Home extends Component {
   componentDidMount() {
     this.fetchNotes();
     this.getBackground();
-    setInterval(this.soil, 600 * 1000);
+    setInterval(this.soil, 35 * 1000);
   }
 
   // Component LIFE CYCLE //
