@@ -1,14 +1,16 @@
 import React, {Component} from "react";
 import fire from '../config/fire'
+import { Left, Right, Password, Email, Form, Inside, Logo, Wrong } from '../components/Login';
 
 class  Login extends Component {
 
     state = {
         eml:'',
-        password:''
+        password:'',
+        display: {display: "none"}
     }
 
-    signUp = event => {
+     signUp = event  =>  {
         event.preventDefault();
         fire.auth().createUserWithEmailAndPassword(this.state.eml, this.state.password)
         .catch(err => console.log(err))
@@ -17,7 +19,10 @@ class  Login extends Component {
     loginUser = event => {
         event.preventDefault();
         fire.auth().signInWithEmailAndPassword(this.state.eml, this.state.password)
-        .catch(err => console.log(err))
+        .catch((err) => {
+            const show = {display: "block"}
+            this.setState({ display: show})
+            console.log(err)})
     }
 
     handleChange = event => {
@@ -28,20 +33,30 @@ class  Login extends Component {
 
     render () { 
         return (
-            <form autoComplete="off" className="col-md-6 centered">
-                <div className="form-group">
-                    <i className="fas fa-user"></i>
-                    <input value={this.state.eml} onChange={this.handleChange} type="email" name="eml"
+            <div>
+            <Left 
+            />
+            <Right>
+                <Logo />
+                {/* <Wrong style={this.state.display} /> */}
+                <Form>
+                    <Email 
+                        value={this.state.eml} 
+                        onChange={this.handleChange}
+                        name="eml"
                     />
-                </div>
-                <div className="form-group">
-                    <i className="fas fa-lock"></i>
-                    <input value={this.state.password} onChange={this.handleChange} type="password" name="password"
+                    <Password 
+                        value={this.state.password}
+                        onChange={this.handleChange}
+                        name="password" 
                     />
-                </div>
-                <i onClick={this.loginUser} className="fas fa-arrow-circle-right"></i> 
-                <p id="signup" onClick={this.signUp}>Signup</p>
-            </form>
+                </Form>
+                <Inside
+                loginUser={this.loginUser} 
+                signUp={this.signUp}
+                />
+            </Right> 
+            </div>
         )
     };
 };
