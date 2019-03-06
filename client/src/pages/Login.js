@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import fire from '../config/fire'
-import { Left, Right, Password, Email, Form, Inside, Logo, Wrong } from '../components/Login';
+import { Left, Right, Password, Email, Form, Inside, Logo /*, Wrong */} from '../components/Login';
 
 class  Login extends Component {
 
