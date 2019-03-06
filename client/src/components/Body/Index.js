@@ -1,7 +1,6 @@
 import React from "react";
 import "./style.css";
 import overHeadPlant from "./images/overHeadPlant.png";
-
 export function Body(props) {
   return (
     <div>
@@ -14,13 +13,11 @@ export function Body(props) {
               <span onClick={() => props.color('yellow')} className="dot color3"></span>
               <span onClick={() => props.color('pink')} className="dot color4"></span>
             </li>
-            <li onClick={() => props.saveNote()}>Save Note</li>
             <li onClick={() => props.logOut()}>LogOut</li>
           </ul>
         </li>
       </ul>
       <button id="logOut" onClick={() => props.logOut()}></button>
-      {/* <button id="save" onClick={() => props.saveNote()}></button> */}
       <center className="header">Quench</center>
       <h4
         className="text-white px-5 mx-5"

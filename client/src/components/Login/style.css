@@ -22,16 +22,20 @@
   border-right: 21px solid rgb(237, 237, 237);
 }
 
-.centered {
-  text-align: center;
-}
-
 .logo {
   font-size: 30px;
   position: absolute;
-  top: 23%;
+  bottom: 200%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
 }
 
 input[type=password], input[type=email] {
@@ -40,13 +44,7 @@ input[type=password], input[type=email] {
   outline: none;
   width: 150px;
   font-size: 20px;
-  margin-top: 50%;
-  margin-bottom: 12px;
-}
-
-input[type=password]::placeholder,
- input[type=email]::placeholder { 
-  margin-right: 50px;
+  margin-bottom: 12px; 
 }
 
 #login {
@@ -60,8 +58,8 @@ input[type=password]::placeholder,
 
 #signup {
   font-size: 15px;
-  position: absolute;
-  bottom: 0;
+  position: fixed;
+  margin-top: 75%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-transform: uppercase;
@@ -69,4 +67,21 @@ input[type=password]::placeholder,
 
 #signup:hover, #login {
   cursor: pointer;
+}
+
+@media only screen and (max-width: 800px) {
+  .left {
+    display: none;
+  }
+
+  .right {
+    border-top: 20px solid rgb(237, 237, 237);
+    border-bottom: 20px solid rgb(237, 237, 237);
+    border-right: 15px solid rgb(237, 237, 237);
+    border-left: 15px solid rgb(237, 237, 237);
+  }
+
+  .split {
+    width: 100%;
+  }
 }

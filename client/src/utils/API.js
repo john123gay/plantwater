@@ -13,9 +13,6 @@ export default {
   isPlantDry: function() {
     return axios.get("https://69.120.124.59:5050/sensor");
   },
-  Facts: function() {
-    return axios.get("http://api.gbif.org/v1/species/search?q=Magnoliophyta")
-  },
   saveNotes: function(notes) {
     return axios.post("/api/notes", notes);
   },

@@ -38,7 +38,11 @@ class Home extends Component {
   componentDidMount() {
     this.fetchNotes();
     this.getBackground();
-    setInterval(this.soil, 35 * 1000);
+    setInterval(this.soil, 30 * 1000);
+  }
+
+  componentWillUnmount() {
+    this.saveNotes();
   }
 
   // Component LIFE CYCLE //
@@ -101,7 +105,6 @@ class Home extends Component {
     API.fetchNotes()
     .then((res) => {
       let last = res.data.pop()
-      console.log(last)
       this.setState({ _id: last._id })
       for (var i=1; i < last.state.length; i++) {
         const grid = {
@@ -210,7 +213,6 @@ class Home extends Component {
       .catch(err => console.log(err));
   };
 
-
   // Watering Plant //
 
 
@@ -229,7 +231,6 @@ class Home extends Component {
       <Container write={this.write}>
         <Body
           waterPlant={this.waterPlant}
-          saveNote={this.saveNotes}
           logOut={this.logOut}
           color={this.backgroundColor}
           getDates={this.getDates}

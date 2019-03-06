@@ -1,20 +1,8 @@
 import React from "react";
 import './style.css'
 
-export function Form(props) {
-  return (
-    <form autoComplete="off" id="form">
-      {props.children}
-    </form>
-  );
-}
-
-export function Logo() {
-  return <i className="fas fa-spa logo"></i>
-}
-
-export function Wrong () {
-  return <i class="fas fa-times wrong"></i>
+export function Logo(props) {
+  return <i style={props.color} className="fas fa-spa logo"></i>
 }
 
 export function Password(props) {
