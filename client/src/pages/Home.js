@@ -164,10 +164,18 @@ class Home extends Component {
     const obj = {
       note: event.id,
       mongo: this.state._id
-    }
+    };
+    this.deleteNotefromState(event.id);
 
-    API.deleteNote(obj).catch((err) => console.log(err))
-  }
+    API.deleteNote(obj).catch((err) => console.log(err));
+  };
+  deleteNotefromState = noteId => {
+    this.setState({
+      notes: this.state.notes.filter(function(note){
+        return note.id !== noteId;
+      })
+    });
+  };
 
   // NOTES //
 
